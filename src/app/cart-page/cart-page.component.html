@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Desc</th>
+        <th scope="col">Price</th>
+        <th scope="col">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartProduct of dataService.cartsProducts | objectValues; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{ cartProduct.title }}</td>
+        <td>{{ cartProduct.description }}</td>
+        <td>{{ cartProduct.price | currency}}</td>
+        <td>{{ cartProduct.count }}</td>
+      </tr>
+    </tbody>
+  </table>

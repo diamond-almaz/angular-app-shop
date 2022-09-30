@@ -1,0 +1,5 @@
+
+<label for="categorySelect">Select category</label>
+<select id="categorySelect" class="form-select" aria-label="Default select example" [formControl]="categoryName" (change)="changeCategory()">
+    <option *ngFor="let category of categories; let i = index" [selected]="category === categoryName.value">{{ category }}</option>
+  </select>
