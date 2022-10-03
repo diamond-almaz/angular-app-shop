@@ -13,6 +13,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MultilineDirective } from './directives/multiline.directive';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { ObjectValuesPipe } from './pipes/object-values.pipe';
+import { IsTruePipe } from './pipes/is-true.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ObjectValuesPipe } from './pipes/object-values.pipe';
     MainPageComponent,
     MultilineDirective,
     CartPageComponent,
-    ObjectValuesPipe
+    ObjectValuesPipe,
+    IsTruePipe
   ],
   imports: [
     BrowserModule,

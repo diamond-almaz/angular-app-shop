@@ -1,5 +1,5 @@
 <div class="categoriesSelect">
-    <app-categories [categories]="dataService.categories"></app-categories>
+    <app-categories [categories]="categories$ | async"></app-categories>
   </div>
 
 

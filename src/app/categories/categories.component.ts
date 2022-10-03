@@ -15,7 +15,7 @@ export class CategoriesComponent {
     
   }
 
-  @Input() categories: string[] = [];
+  @Input() categories: string[] | null = null;
 
   categoryName = new FormControl('');
 

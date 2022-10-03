@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICartProduct, IProduct } from 'src/assets/types';
+import { Observable, tap } from 'rxjs';
 
 
 const BASE_URL = 'https://fakestoreapi.com/products';
@@ -8,7 +9,7 @@ const BASE_URL = 'https://fakestoreapi.com/products';
 @Injectable()
 export class DataService {
 
-    categories: string[] = [];
+    categories$!: Observable<string[]>;
 
     products: IProduct[] = [];
 
@@ -18,10 +19,13 @@ export class DataService {
     }
 
      getAllCategories() {
-         return this.httpClient.get<string[]>(`${BASE_URL}/categories`).subscribe((data: string[]) => {
-            this.categories = data;
-            this.getProductsByCategory(data[0])
-         })
+        this.categories$ = this.httpClient.get<string[]>(`${BASE_URL}/categories`)
+        .pipe(
+            tap((categories: string[]) => {
+                console.log('categories', categories)
+                this.getProductsByCategory(categories[0])
+            })
+        )
      }
 
      getProductsByCategory(categoryName: string) {

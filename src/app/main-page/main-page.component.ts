@@ -12,7 +12,10 @@ import { DataService } from '../services/data.service';
 })
 export class MainPageComponent implements OnInit {
 
+  categories$: Observable<string[]> = new Observable();
+
   constructor(public dataService: DataService) {
+    this.categories$ = this.dataService.categories$
   }
 
   ngOnInit(): void {
